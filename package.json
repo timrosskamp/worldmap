@@ -5,7 +5,7 @@
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently --kill-others \"live-server --port=3030 --watch=assets/\" \"rollup -w -c rollup.config.js\" \"gulp\""
+    "dev": "concurrently --kill-others \"live-server --port=3030 --watch=assets/\" \"rollup -w -c\" \"gulp watch\""
   },
   "repository": {
     "type": "git",
