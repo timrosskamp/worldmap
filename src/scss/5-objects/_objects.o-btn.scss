@@ -1,0 +1,13 @@
+.o-btn {
+    display: inline-block;
+    text-decoration: none;
+    border: 2px solid color('white');
+    border-radius: 99px;
+    padding: 0.2em 1em;
+    &:hover {
+        animation-name: shadowRipple;
+        animation-duration: 0.3s;
+        animation-timing-function: ease-in-out;
+    }
+}
+

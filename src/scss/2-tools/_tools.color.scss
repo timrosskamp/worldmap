@@ -1,0 +1,14 @@
+@function color( $key, $variant: "default" ){
+	@if( map-has-key( $colors, $key ) ){
+		$base: map-get( $colors, $key );
+		@if( map-has-key( $base, $variant ) ){
+			@return map-get( $base, $variant );
+		}
+		@else{
+			@error "'#{$variant}' is not a variant of '#{$key}' in $colors";
+		}
+	}
+	@else{
+		@error "'#{$key}' is not in $colors";
+	}
+}

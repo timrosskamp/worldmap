@@ -1,0 +1,19 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    font-size: ms(0);
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Muli', sans-serif;
+    font-weight: 300;
+    color: color('white');
+}
+
+p {
+    &:not(:last-child){
+        margin-bottom: 1.5rem;
+    }
+}

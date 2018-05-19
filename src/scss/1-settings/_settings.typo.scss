@@ -1,0 +1,12 @@
+@import 'modularscale-sass/stylesheets/modularscale';
+
+$modularscale: (
+    base: 1rem,
+    ratio: 1.2,
+    30em: (
+        ratio: 1.2
+    ),
+    60em: (
+        ratio: 1.3
+    )
+);

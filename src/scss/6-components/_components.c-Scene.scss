@@ -1,0 +1,13 @@
+.c-Scene {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: radial-gradient(
+        #1f9ce3, /* innen */
+        #1219a6 /* außen */
+    );
+
+    &.-focus {
+
+    }
+}
