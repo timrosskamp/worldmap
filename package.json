@@ -1,22 +1,12 @@
 {
   "name": "worldmap",
   "version": "1.0.0",
-  "description": "",
-  "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently --kill-others \"live-server --port=3030 --watch=assets/\" \"rollup -w -c\" \"gulp watch\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://gitlab.com/tim_rosskamp/worldmap.git"
   },
   "author": "Tim Roßkamp",
   "license": "UNLICENSED",
-  "bugs": {
-    "url": "https://gitlab.com/tim_rosskamp/worldmap/issues"
-  },
-  "homepage": "https://gitlab.com/tim_rosskamp/worldmap#README",
+  "private": true,
   "devDependencies": {
     "@tweenjs/tween.js": "^17.2.0",
     "babel-core": "^6.26.0",
@@ -47,6 +37,5 @@
     "vue": "^2.5.16",
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.5.16"
-  },
-  "dependencies": {}
+  }
 }
