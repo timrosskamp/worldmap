@@ -22,7 +22,7 @@ class Controls {
         this.disabled = false;
 
         this.friction = 0.1;
-        this.damping = 0.2;
+        this.damping = 0.05;
         this.autototate = 1;
 
         this._velocity = {

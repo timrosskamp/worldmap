@@ -1,7 +1,7 @@
 <template>
     <div class="c-Gallery">
         <div class="c-Gallery__slider" ref="slider">
-            <img class="c-Gallery__img" v-for="img in images" :src="prefix + img.url" :style="{ objectPosition: img.position }">
+            <img class="c-Gallery__img" src="https://placehold.it/1600x900">
         </div>
     </div>
 </template>
@@ -11,23 +11,7 @@
 export default {
     data(){
         return {
-            prefix: '/assets/img/machu_picchu/',
-            images: [{
-                url: 'machu_picchu_1.jpg',
-                position: '50% 50%'
-            }, {
-                url: 'machu_picchu_2.jpg',
-                position: '50% 50%'
-            }, {
-                url: 'machu_picchu_3.jpg',
-                position: '50% 50%'
-            }, {
-                url: 'machu_picchu_4.jpg',
-                position: '50% 50%'
-            }, {
-                url: 'machu_picchu_5.jpg',
-                position: '50% 50%'
-            }]
+
         }
     },
     mounted(){

@@ -56267,7 +56267,7 @@
           this.disabled = false;
 
           this.friction = 0.1;
-          this.damping = 0.2;
+          this.damping = 0.05;
           this.autototate = 1;
 
           this._velocity = {
@@ -59208,26 +59208,10 @@
       }
   }
 
-  var Gallery = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"c-Gallery"},[_c('div',{ref:"slider",staticClass:"c-Gallery__slider"},_vm._l((_vm.images),function(img){return _c('img',{staticClass:"c-Gallery__img",style:({ objectPosition: img.position }),attrs:{"src":_vm.prefix + img.url}})}))])},staticRenderFns: [],
+  var Gallery = {render: function(){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"c-Gallery"},[_c('div',{ref:"slider",staticClass:"c-Gallery__slider"},[_c('img',{staticClass:"c-Gallery__img",attrs:{"src":"https://placehold.it/1600x900"}})])])},staticRenderFns: [],
       data(){
           return {
-              prefix: '/assets/img/machu_picchu/',
-              images: [{
-                  url: 'machu_picchu_1.jpg',
-                  position: '50% 50%'
-              }, {
-                  url: 'machu_picchu_2.jpg',
-                  position: '50% 50%'
-              }, {
-                  url: 'machu_picchu_3.jpg',
-                  position: '50% 50%'
-              }, {
-                  url: 'machu_picchu_4.jpg',
-                  position: '50% 50%'
-              }, {
-                  url: 'machu_picchu_5.jpg',
-                  position: '50% 50%'
-              }]
+
           }
       },
       mounted(){
