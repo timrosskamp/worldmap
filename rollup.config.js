@@ -31,5 +31,8 @@ export default {
         resolve({
             extensions: ['.js', '.json', '.vue']
         })
-    ]
+    ],
+    watch: {
+        clearScreen: false
+    }
 }
