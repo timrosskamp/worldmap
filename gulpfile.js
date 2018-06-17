@@ -28,6 +28,8 @@ gulp.task('sass', done => {
     ], done);
 });
 
-gulp.task('watch', () => {
+gulp.task('build', ['sass']);
+
+gulp.task('watch', ['build'], () => {
     gulp.watch(['src/scss/**'], { cwd: __dirname }, ['sass']);
 });
