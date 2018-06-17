@@ -5,7 +5,7 @@
     "build": "run-p build:js build:css",
     "build:js": "rollup -c",
     "build:css": "gulp build",
-    "watch": "run-p dev:js dev:css",
+    "watch": "run-p watch:js watch:css",
     "watch:js": "rollup -w -c",
     "watch:css": "gulp watch",
     "start": "live-server --watch=assets/",
