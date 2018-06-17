@@ -1,11 +1,6 @@
 // Modules
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/fromEvent';
-import 'rxjs/add/observable/merge';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/concatMap';
-import 'rxjs/add/operator/pairwise';
-import 'rxjs/add/operator/takeUntil';
+import { fromEvent, merge } from 'rxjs';
+import { map, concatMap, pairwise, takeUntil } from 'rxjs/operators';
 
 // Utils
 import { lerp, MAX_POLAR_ANGLE, MIN_POLAR_ANGLE } from 'utils';
@@ -58,28 +53,41 @@ class Controls {
             }
         }
 
-        const mouseDown$ = Observable.fromEvent(this.domElement, 'mousedown').map(mouseEventMap);
-        const mouseMove$ = Observable.fromEvent(window, 'mousemove').map(mouseEventMap);
-        const mouseUp$ = Observable.fromEvent(window, 'mouseup').map(mouseEventMap);
+        const mouseDown$ = fromEvent(this.domElement, 'mousedown').pipe(
+            map(mouseEventMap)
+        );
+        const mouseMove$ = fromEvent(window, 'mousemove').pipe(
+            map(mouseEventMap)
+        );
+        const mouseUp$ = fromEvent(window, 'mouseup').pipe(
+            map(mouseEventMap)
+        );
 
-        const touchDown$ = Observable.fromEvent(this.domElement, 'touchstart').map(touchEventMap);
-        const touchMove$ = Observable.fromEvent(window, 'touchmove').map(touchEventMap);
-        const touchUp$ = Observable.fromEvent(window, 'touchend').map(touchEventMap);
+        const touchDown$ = fromEvent(this.domElement, 'touchstart').pipe(
+            map(touchEventMap)
+        );
+        const touchMove$ = fromEvent(window, 'touchmove').pipe(
+            map(touchEventMap)
+        );
+        const touchUp$ = fromEvent(window, 'touchend').pipe(
+            map(touchEventMap)
+        );
 
-        const down$ = Observable.merge(mouseDown$, touchDown$);
-        const move$ = Observable.merge(mouseMove$, touchMove$);
-        const up$ = Observable.merge(mouseUp$, touchUp$);
+        const down$ = merge(mouseDown$, touchDown$);
+        const move$ = merge(mouseMove$, touchMove$);
+        const up$ = merge(mouseUp$, touchUp$);
 
-        this.drag$ = down$
-        .concatMap(() => {
-            return move$.pairwise().takeUntil(up$);
-        })
-        .map(evt => {
-            return {
-                x: evt[1].x - evt[0].x,
-                y: evt[1].y - evt[0].y
-            }
-        });
+        this.drag$ = down$.pipe(
+            concatMap(() => {
+                return move$.pairwise().takeUntil(up$);
+            }),
+            map(evt => {
+                return {
+                    x: evt[1].x - evt[0].x,
+                    y: evt[1].y - evt[0].y
+                }
+            })
+        );
     }
     stop(){
         this._velocity.x = 0;

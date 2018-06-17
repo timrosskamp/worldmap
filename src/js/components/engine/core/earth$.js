@@ -1,6 +1,6 @@
 // Modules
 import { BufferGeometryLoader, Mesh, MeshPhongMaterial } from 'three';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 export const earth$ = Observable.create(observer => {
     const loader = new BufferGeometryLoader();
