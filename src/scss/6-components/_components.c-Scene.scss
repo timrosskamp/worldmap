@@ -7,6 +7,12 @@
         #1219a6 /* außen */
     );
 
+    cursor: move;
+    cursor: grab;
+    &.-grabbing {
+        cursor: grabbing;
+    }
+
     &.-focus {
 
     }

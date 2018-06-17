@@ -73,13 +73,16 @@ class Controls {
             map(touchEventMap)
         );
 
-        const down$ = merge(mouseDown$, touchDown$);
-        const move$ = merge(mouseMove$, touchMove$);
-        const up$ = merge(mouseUp$, touchUp$);
+        this.down$ = merge(mouseDown$, touchDown$);
+        this.move$ = merge(mouseMove$, touchMove$);
+        this.up$ = merge(mouseUp$, touchUp$);
 
-        this.drag$ = down$.pipe(
+        this.drag$ = this.down$.pipe(
             concatMap(() => {
-                return move$.pairwise().takeUntil(up$);
+                return this.move$.pipe(
+                    pairwise(),
+                    takeUntil(this.up$)
+                )
             }),
             map(evt => {
                 return {

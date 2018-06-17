@@ -1,5 +1,5 @@
 <template>
-    <div class="c-Scene"></div>
+    <div v-bind:class="['c-Scene', isGrabbing ? '-grabbing' : '']"></div>
 </template>
 
 <script>
@@ -27,6 +27,20 @@ import places from 'data/places.json';
 
 
 export default {
+    data(){
+        return {
+            isGrabbing: false
+        }
+    },
+    created(){
+        controls.down$.subscribe(() => {
+            this.isGrabbing = true;
+        });
+
+        controls.up$.subscribe(() => {
+            this.isGrabbing = false;
+        });
+    },
     mounted(){
         this.init();
     },
