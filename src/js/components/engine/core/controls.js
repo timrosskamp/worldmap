@@ -18,7 +18,7 @@ class Controls {
 
         this.friction = 0.1;
         this.damping = 0.05;
-        this.autototate = 1;
+        this.autototate = 0.5;
 
         this._velocity = {
             x: 0,
