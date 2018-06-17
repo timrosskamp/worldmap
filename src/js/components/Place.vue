@@ -8,7 +8,7 @@
                 </svg>
             </router-link>
             <div class="c-Place__hero">
-                <div class="c-Place__country u-oldStyle">{{ place.country }}</div>
+                <div class="c-Place__country u-text-oldStyle">{{ place.country }}</div>
                 <h2 class="c-Place__title"><span>{{ place.name }}</span></h2>
             </div>
             <div class="c-Place__opener">
