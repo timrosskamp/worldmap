@@ -1,12 +1,4 @@
-@import 'modularscale-sass/stylesheets/modularscale';
+@import url('https://fonts.googleapis.com/css?family=Gentium+Book+Basic:700i');
 
-$modularscale: (
-    base: 1rem,
-    ratio: 1.2,
-    30em: (
-        ratio: 1.2
-    ),
-    60em: (
-        ratio: 1.3
-    )
-);
+$font-headline: 'Gentium Book Basic', serif;
+$font-paragraph: 'Segoe UI', 'Frutiger', 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', 'Arial', sans-serif;

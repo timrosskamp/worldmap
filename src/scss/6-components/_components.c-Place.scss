@@ -32,7 +32,7 @@
 .c-Place__title {
     $breakpoint: 44em;
 
-    @include ms-respond('font-size', 3);
+    // @include ms-respond('font-size', 3);
     font-weight: 800;
     position: absolute;
     top: 47%;
