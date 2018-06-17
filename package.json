@@ -16,6 +16,7 @@
   "private": true,
   "devDependencies": {
     "@tweenjs/tween.js": "^17.2.0",
+    "autoprefixer": "^8.6.2",
     "css-mqpacker": "^6.0.2",
     "cssnano": "^3.10.0",
     "gulp": "^3.9.1",

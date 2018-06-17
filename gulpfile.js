@@ -8,6 +8,7 @@ const concat = require('gulp-concat');
 const postcss = require('gulp-postcss');
 const mqpacker = require('css-mqpacker');
 const cssnano = require('cssnano');
+const autoprefixer = require('autoprefixer');
 
 gulp.task('sass', done => {
     pump([
@@ -22,7 +23,8 @@ gulp.task('sass', done => {
 			mqpacker({
 				sort: true,
 			}),
-			cssnano(),
+            autoprefixer(),
+			cssnano()
 		]),
         gulp.dest('assets/css')
     ], done);
