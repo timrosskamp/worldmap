@@ -4,10 +4,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(color('dark'), 0.5);
+    background: rgba(#000, 0.8);
     overflow: auto;
-    display: flex;
-    align-items: center;
 
     &-leave-active,
     &-enter-active {
@@ -20,25 +18,22 @@
     }
 
     &__content {
-        padding: 10px;
+        padding: 4em 1em;
         width: 100%;
-        max-width: 45rem;
+        max-width: 40rem;
         margin: 0 auto;
-        text-align: center;
     }
 
-    &__checkbox {
-        font-size: 14px;
-        margin-bottom: 0.5rem;
+    &__greeting {
+        font-size: 7em;
+        line-height: 0.8;
     }
 
     &__blockquote {
         background: rgba(color('white'), 0.1);
-        padding: 20px;
-        margin-bottom: 50px;
-    }
-
-    &__quote {
-        @include ms-respond('font-size', 3);
+        padding: 1em;
+        border-left: 4px solid color('white');
+        font-style: italic;
+        @include fluid-type(18px, 24px);
     }
 }

@@ -2,18 +2,21 @@
     <transition name="c-Intro">
         <div class="c-Intro">
             <div class="c-Intro__content">
-                <div class="c-Intro__blockquote">
-                    <blockquote class="c-Intro__quote  u-oldStyle">Die größte Sehens&shy;würdig&shy;keit, die es gibt, ist die Welt &ndash; sieh sie dir an.</blockquote>
-                    <p>Kurt Tucholsky</p>
-                </div>
+                <p class="c-Intro__greeting  u-text-oldStyle">Hi,</p>
                 <p>
-                    Auf dieser Internetseite möchte ich festhalten, welche Orte ich in meinem Leben einmal bereisen möchte.
+                    ich bin Tim Roßkamp und ich dies ist meine persönliche Website. Hier halte
+                    ich fest, welche besonderen Orte ich in meinen Leben gerne entdecken würde.
                 </p>
-                <p class="c-Intro__checkbox">
-                    <label><input type="checkbox" v-on:change="change" v-bind:checked="defaultChecked" /> Intro nicht nochmal zeigen.</label>
+                <blockquote class="c-Intro__blockquote">
+                    Better to see something once than to hear about it a thousand times.
+                </blockquote>
+                <p>
+                    Dieses Zitat beschreibt meine Motivation sehr gut. Ich glaube, dass das
+                    Reisen und Entdecken eines der erfüllensten Dinge ist, die man im Leben
+                    tun kann.
                 </p>
                 <p>
-                    <router-link class="o-btn" to="/orte">weiter</router-link>
+                    <router-link class="c-btn" to="/orte">ein wenig umschauen &raquo;</router-link>
                 </p>
             </div>
         </div>
