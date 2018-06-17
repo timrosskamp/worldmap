@@ -24,7 +24,11 @@ gulp.task('sass', done => {
 				sort: true,
 			}),
             autoprefixer(),
-			cssnano()
+			cssnano({
+				discardComments: {
+					removeAll: true
+				}
+			})
 		]),
         gulp.dest('assets/css')
     ], done);
