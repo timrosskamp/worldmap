@@ -116,7 +116,7 @@
     width: 48px;
 
     & .circle {
-        transform: rotate(-90deg);
+        transform: rotate(90deg);
         transform-origin: center;
         opacity: 0;
         fill: none;
@@ -129,6 +129,7 @@
         transition: all 0.3s ease;
     }
     &:hover .circle {
+        transform: rotate(-90deg);
         opacity: 1;
         stroke-dashoffset: 0;
     }
