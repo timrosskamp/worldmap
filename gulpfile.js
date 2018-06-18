@@ -42,7 +42,7 @@ gulp.task('sass', done => {
 				}
 			})
 		]),
-        gulp.dest('assets/css')
+        gulp.dest('public/assets/css')
     ], done);
 });
 

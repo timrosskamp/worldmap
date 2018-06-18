@@ -9,7 +9,7 @@ import replace from 'rollup-plugin-replace';
 export default {
     input: "src/js/index.js",
     output: {
-        file: "assets/js/app.bundle.js",
+        file: "public/assets/js/app.bundle.js",
         format: "iife"
     },
     plugins: [
