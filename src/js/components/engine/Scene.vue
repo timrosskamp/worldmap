@@ -71,7 +71,6 @@ export default {
         },
         initMarkers(){
             this.markers = places.map(place => new Marker(place));
-            this.markers.forEach(marker => marker.addToScene(pivot));
         },
         initRaycaster(){
             this.raycaster = new Raycaster();

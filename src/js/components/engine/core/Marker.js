@@ -1,5 +1,7 @@
 import { Mesh, ConeGeometry, MeshPhongMaterial, Vector3 } from 'three';
 
+import { pivot } from './pivot';
+
 // Utils
 import { convertCoordsToVector } from 'utils';
 
@@ -26,9 +28,8 @@ export class Marker {
         this._cone.geometry.rotateX(Math.PI / 2);
         this._cone.position.set(position.x, position.y, position.z);
         this._cone.lookAt(new Vector3(0,0,0));
-    }
-    addToScene(scene){
-        scene.add(this._cone);
+
+        pivot.add(this._cone);
     }
     object(){
         return this._cone;
