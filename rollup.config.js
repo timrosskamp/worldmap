@@ -10,7 +10,8 @@ export default {
     input: "src/js/index.js",
     output: {
         file: "public/assets/js/app.bundle.js",
-        format: "iife"
+        format: "iife",
+        sourcemap: false
     },
     plugins: [
         replace({

@@ -1,4 +1,4 @@
-import { Mesh, ConeGeometry, MeshPhongMaterial, Vector3 } from 'three';
+import { Sprite, SpriteMaterial, TextureLoader } from 'three';
 
 import { pivot } from './pivot';
 
@@ -14,24 +14,20 @@ export class Marker {
 
         const position = convertCoordsToVector(location.lat, location.lng, 4.5);
 
-        this._cone = new Mesh(
-            new ConeGeometry(
-                0.15, // radius
-                0.6, // height
-                5 // radialSegments
-            ),
-            new MeshPhongMaterial({
-                color: 0xbbddff,
-                flatShading: true
+        this._sprite = new Sprite(
+            new SpriteMaterial({
+                map: new TextureLoader().load("/assets/img/target.png"),
+                color: 0xffffff
             })
         );
-        this._cone.geometry.rotateX(Math.PI / 2);
-        this._cone.position.set(position.x, position.y, position.z);
-        this._cone.lookAt(new Vector3(0,0,0));
 
-        pivot.add(this._cone);
+        console.log(this._sprite);
+
+        this._sprite.position.set(position.x, position.y, position.z);
+
+        pivot.add(this._sprite);
     }
     object(){
-        return this._cone;
+        return this._sprite;
     }
 }
