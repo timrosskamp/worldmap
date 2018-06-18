@@ -12,7 +12,7 @@
                 <h2 class="c-Place__title"><span>{{ place.name }}</span></h2>
             </div>
             <div class="c-Place__opener">
-                <router-link v-bind:to="'/orte/' + $route.params.place + '/galerie'" class="link">
+                <router-link v-bind:to="`/orte/${$route.params.place}/galerie`" class="link">
                     Leertaste gedrückt halten
                 </router-link>
             </div>
