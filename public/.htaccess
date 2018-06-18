@@ -3,12 +3,6 @@ AuthName "One does not simply"
 AuthUserFile /var/www/vhosts/hosting100680.af9a4.netcup.net/.htpasswd
 Require valid-user
 
-Deny From All
-
-<Files ~ "^(index\.html|)$">
-    Allow From All
-</Files>
-
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
