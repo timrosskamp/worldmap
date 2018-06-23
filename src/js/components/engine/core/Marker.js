@@ -1,6 +1,8 @@
-import { Sprite, SpriteMaterial, TextureLoader } from 'three';
+import { Object3D, Vector3 } from 'three';
 
+import { camera } from './camera';
 import { pivot } from './pivot';
+import { renderer } from './renderer';
 
 // Utils
 import { convertCoordsToVector } from 'utils';
@@ -10,24 +12,41 @@ export class Marker {
         this.location = location;
         this.name = name;
         this.slug = slug;
-        this.active = false;
+        this.css = {
+            transform: ""
+        }
 
         const position = convertCoordsToVector(location.lat, location.lng, 4.5);
 
-        this._sprite = new Sprite(
-            new SpriteMaterial({
-                map: new TextureLoader().load("/assets/img/target.png"),
-                color: 0xffffff
-            })
-        );
+        this._pos = new Object3D();
 
-        console.log(this._sprite);
+        this._pos.position.set(position.x, position.y, position.z);
 
-        this._sprite.position.set(position.x, position.y, position.z);
-
-        pivot.add(this._sprite);
+        pivot.add(this._pos);
     }
     object(){
-        return this._sprite;
+        return this._pos;
+    }
+    _getXYonScreen(){
+        const pos = new Vector3(
+            this._pos.position.x,
+            this._pos.position.y,
+            this._pos.position.z
+        ).project(camera);
+
+        const screenDimentions = {
+            width: renderer.domElement.width / 2,
+            height: renderer.domElement.height / 2
+        }
+
+        return {
+            x: (pos.x * screenDimentions.width) + screenDimentions.width,
+            y: - (pos.y * screenDimentions.height) + screenDimentions.height
+        }
+    }
+    render(){
+        const pos = this._getXYonScreen();
+
+        this.css.transform = `translate(${pos.x}px, ${pos.y}px)`;
     }
 }

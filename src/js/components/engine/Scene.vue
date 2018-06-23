@@ -1,5 +1,7 @@
 <template>
-    <div v-bind:class="['c-Scene', isGrabbing ? '-grabbing' : '']"></div>
+    <div v-bind:class="['c-Scene', isGrabbing ? '-grabbing' : '']">
+        <span v-for="marker in markers" v-bind:style="marker.css">{{ marker.name }}</span>
+    </div>
 </template>
 
 <script>
@@ -29,7 +31,8 @@ import places from 'data/places.json';
 export default {
     data(){
         return {
-            isGrabbing: false
+            isGrabbing: false,
+            markers: []
         }
     },
     created(){
@@ -150,6 +153,7 @@ export default {
                 renderer.render(scene, camera)
                 controls.update();
                 TWEEN.update();
+                this.markers.forEach(marker => marker.render());
                 requestAnimationFrame(animate);
             }
             requestAnimationFrame(animate);
