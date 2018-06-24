@@ -1,4 +1,6 @@
 .c-Scene {
+    $this: &;
+
     width: 100vw;
     height: 100vh;
     overflow: hidden;
@@ -7,13 +9,36 @@
         #1219a6 /* außen */
     );
 
-    cursor: move;
-    cursor: grab;
-    &.-grabbing {
-        cursor: grabbing;
-    }
-
     &.-focus {
 
+    }
+
+    &__canvas {
+        cursor: move;
+        cursor: grab;
+        #{$this}.-grabbing & {
+            cursor: grabbing;
+        }
+    }
+
+    &__marker {
+        position: absolute;
+        display: inline-block;
+        border-radius: 100%;
+        background: color('white');
+        overflow: hidden;
+        border: 8px solid color('white');
+
+        img {
+            display: block;
+            width: 0;
+            height: 0;
+            transition: all 0.2s ease;
+        }
+
+        &:hover img {
+            width: 48px;
+            height: 48px;
+        }
     }
 }

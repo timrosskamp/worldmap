@@ -13,7 +13,15 @@ const autoprefixer = require('autoprefixer');
 
 gulp.task('sass', done => {
     pump([
-        gulp.src('src/scss/**/*.scss'),
+        gulp.src([
+            'src/scss/1-settings/*.scss',
+            'src/scss/2-tools/*.scss',
+            'src/scss/3-generic/*.scss',
+            'src/scss/4-elements/*.scss',
+            'src/scss/5-objects/*.scss',
+            'src/scss/6-components/*.scss',
+            'src/scss/7-utils/*.scss'
+        ]),
         concat('stylesheet.scss'),
         sass({
 			includePaths: [

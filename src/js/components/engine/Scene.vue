@@ -1,12 +1,14 @@
 <template>
     <div v-bind:class="['c-Scene', isGrabbing ? '-grabbing' : '']">
-        <span v-for="marker in markers" v-bind:style="marker.css">{{ marker.name }}</span>
+        <router-link v-for="marker in markers" class="c-Scene__marker" v-bind:style="marker.style" :to="`/orte/${marker.slug}`">
+            <img src="https://placehold.it/48x48">
+            <span class="u-visuallyhidden">{{ marker.name }}</span>
+        </router-link>
     </div>
 </template>
 
 <script>
 // Modules
-import { Raycaster, Object3D, Vector2 } from 'three';
 import TWEEN from '@tweenjs/tween.js';
 
 // Components
@@ -16,7 +18,7 @@ import {
     camera,
     lights,
     earth$,
-    Marker,
+    markers,
     scene,
     pivot
 } from 'components/engine/core';
@@ -24,15 +26,12 @@ import {
 // Utils
 import { CAMERA_DEFAULT_Z } from 'utils';
 
-// Data
-import places from 'data/places.json';
-
 
 export default {
     data(){
         return {
             isGrabbing: false,
-            markers: []
+            markers: markers.items
         }
     },
     created(){
@@ -51,11 +50,8 @@ export default {
         init(){
             // Initialize
             this.initEarth();
-            this.initMarkers();
-            this.initRaycaster();
 
             // Events
-            renderer.domElement.addEventListener('click', this.onClick.bind(this), false);
             this.$router.afterEach(this.onRouteChange.bind(this));
 
             // Methods
@@ -71,14 +67,6 @@ export default {
             earth$.subscribe(earth => {
                 pivot.add(earth);
             });
-        },
-        initMarkers(){
-            this.markers = places.map(place => new Marker(place));
-        },
-        initRaycaster(){
-            this.raycaster = new Raycaster();
-            this.mouse = new Vector2();
-            this.intersect = null;
         },
         focus(marker, animated = true){
             const duration = animated === true ? 2000 : 0;
@@ -153,35 +141,10 @@ export default {
                 renderer.render(scene, camera)
                 controls.update();
                 TWEEN.update();
-                this.markers.forEach(marker => marker.render());
+                markers.render();
                 requestAnimationFrame(animate);
             }
             requestAnimationFrame(animate);
-        },
-        getIntersectMarker(evt){
-            this.mouse.x = ( evt.clientX / window.innerWidth ) * 2 - 1;
-    	    this.mouse.y = -( evt.clientY / window.innerHeight ) * 2 + 1;
-
-            this.raycaster.setFromCamera(this.mouse, camera);
-
-            for(let i = 0; i < this.markers.length; i++){
-                let item = this.markers[i];
-
-                let intersect = this.raycaster.intersectObject(item.object());
-
-                if( intersect.length > 0 ){
-
-                    return item;
-                }
-            }
-            return null;
-        },
-        onClick(evt){
-            const marker = this.getIntersectMarker(evt);
-
-            if(marker){
-                this.$router.push('/orte/' + marker.slug);
-            }
         },
         initialRoute(){
             const currentMarker = 'place' in this.$router.history.current.params ? this.markers.find(marker => {

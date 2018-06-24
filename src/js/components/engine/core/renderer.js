@@ -15,6 +15,8 @@ class Renderer extends WebGLRenderer {
         window.addEventListener('resize', (evt) => {
             this.setSize(window.innerWidth, window.innerHeight);
         }, false);
+
+        this.domElement.classList.add('c-Scene__canvas');
     }
 }
 
