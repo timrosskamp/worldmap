@@ -10,5 +10,8 @@
         "vue": "^2.6.11",
         "vue-hot-reload-api": "^2.3.4",
         "vue-template-compiler": "^2.6.11"
+    },
+    "scripts": {
+        "build": "parcel build index.html --public-url ./ --dist-dir build/"
     }
 }
