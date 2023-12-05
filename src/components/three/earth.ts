@@ -24,7 +24,7 @@ scene.add(group);
     });
 })();
 
-(function loadShip(){
+function loadShip(){
     const objLoader = new OBJLoader();
     const mtlLoader = new MTLLoader();
 
@@ -40,13 +40,10 @@ scene.add(group);
             ship.position.set(-1.22376, 1.65383, 1.82092);
             ship.lookAt(group.position);
 
-
-            console.log(ship);
-
             group.add(ship);
         });
     });
-})();
+}
 
 export {
     group as earth

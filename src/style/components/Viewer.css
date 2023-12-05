@@ -1,0 +1,16 @@
+.c-Viewer {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: radial-gradient(
+        #1f9ce3,
+        #1219a6
+    );
+
+    cursor: move;
+    cursor: grab;
+}
+
+.c-Viewer.-grabbing {
+    cursor: grabbing;
+}

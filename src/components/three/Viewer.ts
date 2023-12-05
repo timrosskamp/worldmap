@@ -1,5 +1,5 @@
-import { renderer } from './renderer';
-import { camera } from './camera';
+import { renderer } from './renderer';
+import { camera } from './camera';
 import { scene } from './scene';
 import { controls } from './controls';
 import './lights';

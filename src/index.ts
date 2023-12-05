@@ -1,6 +1,7 @@
-import Vue from 'vue';
-import Viewer from './components/Viewer.vue';
+import Viewer from './components/three/Viewer.js'
 
-new Vue({
-    render: createElement => createElement(Viewer)
-}).$mount('#app');
+const $canvasWrapper = document.querySelector('#canvasWrapper')
+
+const viewer = new Viewer({
+    el: $canvasWrapper
+});
