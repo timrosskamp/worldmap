@@ -12,6 +12,6 @@
         "vue-template-compiler": "^2.6.11"
     },
     "scripts": {
-        "build": "parcel build index.html --public-url ./ --dist-dir build/"
+        "build": "parcel build index.html --public-url ${PUBLIC_URL} --dist-dir build/"
     }
 }
