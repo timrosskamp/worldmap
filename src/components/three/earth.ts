@@ -12,12 +12,12 @@ scene.add(group);
     const objLoader = new OBJLoader();
     const mtlLoader = new MTLLoader();
 
-    mtlLoader.load('/models/earth.mtl', materialCreator => {
+    mtlLoader.load('models/earth.mtl', materialCreator => {
         materialCreator.preload();
 
         objLoader.setMaterials(materialCreator);
 
-        objLoader.load('/models/earth.obj', earth => {
+        objLoader.load('models/earth.obj', earth => {
             earth.name = "Earth";
             group.add(earth);
         });
@@ -28,12 +28,12 @@ function loadShip(){
     const objLoader = new OBJLoader();
     const mtlLoader = new MTLLoader();
 
-    mtlLoader.load('/models/container_ship.mtl', materialCreator => {
+    mtlLoader.load('models/container_ship.mtl', materialCreator => {
         materialCreator.preload();
 
         objLoader.setMaterials(materialCreator);
 
-        objLoader.load('/models/container_ship.obj', ship => {
+        objLoader.load('models/container_ship.obj', ship => {
             ship.name = 'Container Ship';
 
             ship.scale.set(0.1, 0.1, 0.1);
